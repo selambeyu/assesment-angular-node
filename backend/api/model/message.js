@@ -8,6 +8,17 @@ const MessageSchema = mongoose.Schema({
   lastname: {
     type: String,
     required: true
+  },
+  email: {
+    type: String,
+    required: true
+  },
+  phone_no: {
+    type: Number
+  },
+  message: {
+    type: String,
+    required: true
   }
 });
 module.exports = mongoose.model("message", MessageSchema);
