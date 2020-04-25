@@ -1,12 +1,11 @@
 var mongoose = require("mongoose");
 
-var URL = process.env.URL || "mongodb://localhost/assesmentDB";
+var URL = process.env.URL || "mongodb://localhost/DB";
 mongoose.set("useCreateIndex", true);
 mongoose.set("useFindAndModify", false);
 
 mongoose.connect(URL, {
   useNewUrlParser: true,
-  useCreateIndex: true,
   useUnifiedTopology: true
 });
 
