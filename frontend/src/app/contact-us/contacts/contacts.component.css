@@ -1,0 +1,13 @@
+.container {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("/assets/images/bgimg.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  padding-left: 0px;
+  padding-top: 100px;
+}
+.row {
+  text-align: center;
+  color: black;
+}
