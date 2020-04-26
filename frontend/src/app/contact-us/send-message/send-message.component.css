@@ -1,3 +1,32 @@
-.jumbotron {
-  background-color: white;
+h1 {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 25px;
+}
+label {
+  font-size: 12px;
+  font-style: normal;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+small {
+  color: red;
+  font-size: initial;
+}
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  /* color: red; */
+  opacity: 0.6; /* Firefox */
+}
+textarea {
+  height: 100px;
+}
+input.ng-touched.ng-invalid {
+  border-color: red;
+}
+
+div.validation-error {
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 80%;
+  color: red;
 }

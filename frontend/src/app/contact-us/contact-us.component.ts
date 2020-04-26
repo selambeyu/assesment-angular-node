@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ContactusService } from "../services/contactus.service";
+// import { ContactusService } from "../services/contactus.service";
 // import { Contactus } from "../models/contactus.model";
 
 @Component({
@@ -8,7 +8,7 @@ import { ContactusService } from "../services/contactus.service";
   styleUrls: ["./contact-us.component.css"]
 })
 export class ContactUsComponent implements OnInit {
-  constructor(private sevice: ContactusService) {}
+  constructor() {}
 
   ngOnInit() {}
 }
