@@ -16,11 +16,11 @@ export class Message {
 
     conn.once("open", () => {
       gfs = Grid(conn.db);
-      router.get("/home", (req: Request, res: Response) => {
-        // let { errors, isValid } = validateMessage(req.body);
-        // if (!isValid) {
-        //   return res.status(400).json(errors);
-        // }
+      router.get("/submit-message", (req: Request, res: Response) => {
+        let { errors, isValid } = validateMessage(req.body);
+        if (!isValid) {
+          return res.status(400).json(errors);
+        }
         const message = new MessageModel({
           firstname: req.body.firstname,
           lastname: req.body.lastname,
