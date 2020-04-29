@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { NgForm } from "@angular/forms";
+import { NgForm, FormGroup, FormBuilder, Validators } from "@angular/forms";
+
 import { ContactusService } from "src/app/services/contactus.service";
+import { from } from "rxjs";
 
 @Component({
   selector: "app-send-message",
@@ -8,28 +10,47 @@ import { ContactusService } from "src/app/services/contactus.service";
   styleUrls: ["./send-message.component.css"]
 })
 export class SendMessageComponent implements OnInit {
-  constructor(private sevice: ContactusService) {}
+  // constructor(private sevice: ContactusService) {}
 
-  ngOnInit() {
-    this.resetForm();
-  }
-  resetForm(form?: NgForm) {
-    if (form != null) form.resetForm();
-    this.sevice.formData = {
-      firstname: "",
-      lastname: "",
-      email: "",
-      message: "",
-      phoneno: null
-    };
-  }
-  onSubmit(form: NgForm) {
-    this.sendMessage(form);
+  angForm: FormGroup;
+  constructor(private fb: FormBuilder, private ps: ContactusService) {
+    this.createForm();
   }
 
-  sendMessage(form: NgForm) {
-    this.sevice.postMessage(form.value).subscribe(res => {
-      this.resetForm(form);
+  createForm() {
+    this.angForm = this.fb.group({
+      firstname: ["", Validators.required],
+      lastname: ["", Validators.required],
+      email: ["", Validators.required],
+      phoneno: ["", Validators.required],
+      message: ["", Validators.required]
     });
   }
+
+  postmessage(firstname, lastname, email, phoneno, message) {
+    this.ps.postMessage(firstname, lastname, email, phoneno, message);
+  }
+
+  ngOnInit() {
+    // this.resetForm();
+  }
+  //   resetForm(form?: NgForm) {
+  //     if (form != null) form.resetForm();
+  //     this.sevice.formData = {
+  //       firstname: "",
+  //       lastname: "",
+  //       email: "",
+  //       message: "",
+  //       phoneno: null
+  //     };
+  //   }
+  //   onSubmit(form: NgForm) {
+  //     this.sendMessage(form);
+  //   }
+
+  //   sendMessage(form: NgForm) {
+  //     this.sevice.postMessage(form.value).subscribe(res => {
+  //       this.resetForm(form);
+  //     });
+  //   }
 }

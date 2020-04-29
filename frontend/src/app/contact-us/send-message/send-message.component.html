@@ -2,25 +2,30 @@
   <!-- <div class="jumbotron"> -->
   <h1>Send Us A Message</h1>
   <!-- </div> -->
-  <form #form="ngForm" (submit)="onSubmit(form)">
+  <form [formGroup]="angForm" novalidate>
     <label for="">TELL US YOUR NAME <small>*</small></label>
     <div class="row">
       <div class="col">
         <div class="form-group">
           <!-- <label for="tb1">First name</label> -->
           <input
-            name="firstname"
-            #firstname="ngModel"
-            [(ngModel)]="service.formData.firstname"
             class="form-control"
+            formControlName="firstname"
+            #firstname
             placeholder="Fist name"
             required
           />
           <div
-            class="validation-error"
-            *ngIf="firstname.invalid && firstname.touched"
+            *ngIf="
+              angForm.controls['firstname'].invalid &&
+              (angForm.controls['firstname'].dirty ||
+                angForm.controls['firstname'].touched)
+            "
+            class="alert alert-danger"
           >
-            This field is required
+            <div *ngIf="angForm.controls['firstname'].errors.required">
+              Fist Name is required.
+            </div>
           </div>
         </div>
       </div>
@@ -28,20 +33,24 @@
         <div class="form-group">
           <!-- <label for="tb1">Last name</label> -->
           <input
-            name="lastname"
-            #lastname="ngModel"
-            [(ngModel)]="service.formData.lastname"
             class="form-control"
+            formControlName="lastname"
+            #lastname
             placeholder="Last name"
             required
           />
           <div
-            class="validation-error"
-            *ngIf="lastnameinvalid && lastnametouched"
+            *ngIf="
+              angForm.controls['lastname'].invalid &&
+              (angForm.controls['lastname'].dirty ||
+                angForm.controls['lastname'].touched)
+            "
+            class="alert alert-danger"
           >
-            This field is required
+            <div *ngIf="angForm.controls['lastname'].errors.required">
+              last name is required.
+            </div>
           </div>
-          <div class="validation-error">This field is required</div>
         </div>
       </div>
     </div>
@@ -49,51 +58,75 @@
     <div class="form-group">
       <label for="tb1">ENTER YOUR EMAIL <small>*</small></label>
       <input
-        name="email"
-        #email="ngModel"
-        [(ngModel)]="service.formData.email"
         type="email"
         class="form-control"
+        formControlName="email"
+        #email
         placeholder="Eg. example@email.com"
         required
       />
-      <div class="validation-error" *ngIf="email.invalid && email.touched">
-        This field is required
+      <div
+        *ngIf="
+          angForm.controls['email'].invalid &&
+          (angForm.controls['email'].dirty || angForm.controls['email'].touched)
+        "
+        class="alert alert-danger"
+      >
+        <div *ngIf="angForm.controls['email'].errors.required">
+          email is required.
+        </div>
       </div>
-      <div class="validation-error">This field is required</div>
     </div>
     <div class="form-group">
-      <label for="exampleInputPassword1">ENTER YOUR PHONE NUMBER</label>
+      <label for="exampleInputPhone">ENTER YOUR PHONE NUMBER</label>
       <input
-        name="phoneno"
-        #phoneno="ngModel"
-        [(ngModel)]="service.formData.phoneno"
         class="form-control"
+        formControlName="phoneno"
+        #phoneno
         placeholder="Eg. +1800 000000"
       />
     </div>
     <div class="form-group">
       <label for="exampleInputPassword1">MESSAGE <small>*</small></label>
       <textarea
-        name="message"
-        #message="ngModel"
-        [(ngModel)]="service.formData.message"
         class="form-control"
+        formControlName="message"
+        #message
         placeholder="Write us a message"
         required
       ></textarea>
-      <div class="validation-error" *ngIf="message.invalid && message.touched">
-        This field is required
+      <div
+        *ngIf="
+          angForm.controls['message'].invalid &&
+          (angForm.controls['message'].dirty ||
+            angForm.controls['message'].touched)
+        "
+        class="alert alert-danger"
+      >
+        <div *ngIf="angForm.controls['message'].errors.required">
+          message is required.
+        </div>
       </div>
     </div>
-    <div class="col text-center">
-      <button
-        type="submit"
-        [disabled]="form.invalid"
-        class="btn btn-success center"
-      >
-        SEND MESSAGE
-      </button>
+    <div class="form-group">
+      <div class="col text-center">
+        <button
+          (click)="
+            postMessage(
+              firstname.value,
+              lastname.value,
+              email.value,
+              phoneno.value,
+              message.value
+            )
+          "
+          type="submit"
+          [disabled]="angForm.pristine || angForm.invalid"
+          class="btn btn-success center"
+        >
+          SEND MESSAGE
+        </button>
+      </div>
     </div>
   </form>
 </div>

@@ -1,12 +1,13 @@
-const express = require("express");
-const router = express.Router();
-const validateMessage = require("../../validation/message-validation");
-const Message = require("../model/message");
+// const express = require("express");
+// const router = express.Router();
+// const validateMessage = require("../validation/is-empty");
+import * as validateMessage from "../validation/message-validation";
+// const validateMessage = require("../validation/message-validation");
+import Message from "../model/message";
+// const Message = require("../model/message");
 
-router.get("/message", (req, res) => {});
-
-router.post("/submit-message", (req, res) => {
-  const { errors, isValid } = validateMessage(req.body);
+module.exports.submitMessage = (req, res) => {
+  let { errors, isValid } = validateMessage(req.body);
   if (!isValid) {
     return res.status(400).json(errors);
   }
@@ -29,5 +30,4 @@ router.post("/submit-message", (req, res) => {
     .catch(err => {
       res.status(400).send("unable to save to database");
     });
-});
-module.exports = router;
+};

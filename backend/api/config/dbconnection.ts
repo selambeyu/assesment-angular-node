@@ -1,4 +1,5 @@
-var mongoose = require("mongoose");
+import mongoose from "mongoose";
+// var mongoose = require("mongoose");
 
 var URL = process.env.URL || "mongodb://localhost/DB";
 mongoose.set("useCreateIndex", true);

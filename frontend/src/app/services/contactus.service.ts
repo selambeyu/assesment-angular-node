@@ -12,7 +12,17 @@ export class ContactusService {
 
   constructor(private http: HttpClient) {}
 
-  postMessage(formData: Contactus) {
-    return this.http.post(this.rootURL + "/submit-message", formData);
+  postMessage(firstname, lastname, email, phoneno, message) {
+    const obj = {
+      firstname,
+      lastname,
+      email,
+      phoneno,
+      message
+    };
+    console.log(obj);
+    this.http
+      .post(this.rootURL + "/submit-message", obj)
+      .subscribe(res => console.log("message sent successfully"));
   }
 }

@@ -20,7 +20,7 @@ small {
 textarea {
   height: 100px;
 }
-input.ng-touched.ng-invalid {
+/* input.ng-touched.ng-invalid {
   border-color: red;
 }
 
@@ -29,4 +29,4 @@ div.validation-error {
   margin-top: 0.25rem;
   font-size: 80%;
   color: red;
-}
+} */
