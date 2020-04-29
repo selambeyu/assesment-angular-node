@@ -27,8 +27,8 @@ export class SendMessageComponent implements OnInit {
     });
   }
 
-  postmessage(firstname, lastname, email, phoneno, message) {
-    this.ps.postMessage(firstname, lastname, email, phoneno, message);
+  sendMessage(firstname, lastname, email, phoneno, message) {
+    this.ps.postMessages(firstname, lastname, email, phoneno, message);
   }
 
   ngOnInit() {

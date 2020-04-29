@@ -8,11 +8,11 @@ import { from } from "rxjs";
 })
 export class ContactusService {
   formData: Contactus;
-  readonly rootURL = "http://localhost:8000/api";
+  readonly rootURL = "http://localhost:8080/api";
 
   constructor(private http: HttpClient) {}
 
-  postMessage(firstname, lastname, email, phoneno, message) {
+  postMessages(firstname, lastname, email, phoneno, message) {
     const obj = {
       firstname,
       lastname,
