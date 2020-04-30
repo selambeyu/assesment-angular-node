@@ -1,8 +1,12 @@
-const validator = require("validator");
-const isEmpty = require("./is-empty");
+import { stringify } from "querystring";
 
-module.exports = function validateMessagedata(data) {
-  let errors = {};
+
+
+import validator from "validator"
+import * as isEmpty from "./is-empty"
+
+class validateMessagedata(data:any) {
+  let errors: any = {};
 
   data.firstname = !isEmpty(data.firstname) ? data.firstname : "";
   data.lastname = !isEmpty(data.lastname) ? data.lastname : "";

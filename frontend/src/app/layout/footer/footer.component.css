@@ -5,3 +5,7 @@ footer {
 .footer-copyright.text-center.py-3 {
   color: white;
 }
+
+.navbar {
+  height: 40px;
+}

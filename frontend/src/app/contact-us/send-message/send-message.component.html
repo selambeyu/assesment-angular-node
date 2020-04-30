@@ -1,132 +1,146 @@
-<div class="container">
-  <!-- <div class="jumbotron"> -->
-  <h1>Send Us A Message</h1>
-  <!-- </div> -->
-  <form [formGroup]="angForm" novalidate>
-    <label for="">TELL US YOUR NAME <small>*</small></label>
-    <div class="row">
-      <div class="col">
-        <div class="form-group">
-          <!-- <label for="tb1">First name</label> -->
-          <input
-            class="form-control"
-            formControlName="firstname"
-            #firstname
-            placeholder="Fist name"
-            required
-          />
-          <div
-            *ngIf="
-              angForm.controls['firstname'].invalid &&
-              (angForm.controls['firstname'].dirty ||
-                angForm.controls['firstname'].touched)
-            "
-            class="alert alert-danger"
-          >
-            <div *ngIf="angForm.controls['firstname'].errors.required">
-              Fist Name is required.
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="form-group">
-          <!-- <label for="tb1">Last name</label> -->
-          <input
-            class="form-control"
-            formControlName="lastname"
-            #lastname
-            placeholder="Last name"
-            required
-          />
-          <div
-            *ngIf="
-              angForm.controls['lastname'].invalid &&
-              (angForm.controls['lastname'].dirty ||
-                angForm.controls['lastname'].touched)
-            "
-            class="alert alert-danger"
-          >
-            <div *ngIf="angForm.controls['lastname'].errors.required">
-              last name is required.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<form [formGroup]="angForm" novalidate class="contact100-form validate-form">
+  <span class="contact100-form-title">
+    Send Us A Message
+  </span>
 
-    <div class="form-group">
-      <label for="tb1">ENTER YOUR EMAIL <small>*</small></label>
-      <input
-        type="email"
-        class="form-control"
-        formControlName="email"
-        #email
-        placeholder="Eg. example@email.com"
-        required
-      />
-      <div
-        *ngIf="
-          angForm.controls['email'].invalid &&
-          (angForm.controls['email'].dirty || angForm.controls['email'].touched)
-        "
-        class="alert alert-danger"
-      >
-        <div *ngIf="angForm.controls['email'].errors.required">
-          email is required.
-        </div>
+  <label class="label-input100" for="first-name"
+    >Tell us your name <small>*</small>
+  </label>
+  <div class="wrap-input100 rs2-wrap-input100 ">
+    <input
+      class="input100"
+      type="text"
+      name="first-name"
+      formControlName="firstname"
+      #lastname
+      placeholder="First name"
+      required
+    />
+    <span class="focus-input100"></span>
+    <div
+      *ngIf="
+        angForm.controls['firstname'].invalid &&
+        (angForm.controls['firstname'].dirty ||
+          angForm.controls['firstname'].touched)
+      "
+      class="alert alert-danger"
+    >
+      <div *ngIf="angForm.controls['firstname'].errors.required">
+        first name is required.
       </div>
     </div>
-    <div class="form-group">
-      <label for="exampleInputPhone">ENTER YOUR PHONE NUMBER</label>
-      <input
-        class="form-control"
-        formControlName="phoneno"
-        #phoneno
-        placeholder="Eg. +1800 000000"
-      />
-    </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">MESSAGE <small>*</small></label>
-      <textarea
-        class="form-control"
-        formControlName="message"
-        #message
-        placeholder="Write us a message"
-        required
-      ></textarea>
-      <div
-        *ngIf="
-          angForm.controls['message'].invalid &&
-          (angForm.controls['message'].dirty ||
-            angForm.controls['message'].touched)
-        "
-        class="alert alert-danger"
-      >
-        <div *ngIf="angForm.controls['message'].errors.required">
-          message is required.
-        </div>
+  </div>
+  <div class="wrap-input100 rs2-wrap-input100 ">
+    <input
+      class="input100"
+      type="text"
+      name="last-name"
+      formControlName="lastname"
+      #lastname
+      placeholder="Last name"
+      required
+    />
+    <span class="focus-input100"></span>
+    <div
+      *ngIf="
+        angForm.controls['lastname'].invalid &&
+        (angForm.controls['lastname'].dirty ||
+          angForm.controls['lastname'].touched)
+      "
+      class="alert alert-danger"
+    >
+      <div *ngIf="angForm.controls['lastname'].errors.required">
+        last name is required.
       </div>
     </div>
-    <div class="form-group">
-      <div class="col text-center">
-        <button
-          (click)="
-            sendMessage(
-              firstname.value,
-              lastname.value,
-              email.value,
-              phoneno.value,
-              message.value
-            )
-          "
-          type="submit"
-          [disabled]="angForm.pristine || angForm.invalid"
-          class="btn btn-success center"
-        >
-          SEND MESSAGE
-        </button>
+  </div>
+
+  <label class="label-input100" for="email"
+    >Enter your email <small>*</small></label
+  >
+  <div
+    class="wrap-input100 validate-input"
+    data-validate="Valid email is required: ex@abc.xyz"
+  >
+    <input
+      id="email"
+      class="input100"
+      type="text"
+      name="email"
+      formControlName="email"
+      #email
+      placeholder="Eg. example@email.com"
+      required
+    />
+    <span class="focus-input100"></span>
+    <div
+      *ngIf="
+        angForm.controls['email'].invalid &&
+        (angForm.controls['email'].dirty || angForm.controls['email'].touched)
+      "
+      class="alert alert-danger"
+    >
+      <div *ngIf="angForm.controls['email'].errors.required">
+        email is required.
       </div>
     </div>
-  </form>
-</div>
+  </div>
+
+  <label class="label-input100" for="phone">Enter phone number</label>
+  <div class="wrap-input100">
+    <input
+      id="phone"
+      class="input100"
+      type="text"
+      name="phone"
+      formControlName="phoneno"
+      #phoneno
+      placeholder="Eg. +1 800 000000"
+    />
+    <span class="focus-input100"></span>
+  </div>
+
+  <label class="label-input100" for="message">Message <small>*</small></label>
+  <div class="wrap-input100 validate-input" data-validate="Message is required">
+    <textarea
+      id="message"
+      class="input100"
+      name="message"
+      formControlName="message"
+      #message
+      required
+      placeholder="Write us a message"
+    ></textarea>
+    <span class="focus-input100"></span>
+    <div
+      *ngIf="
+        angForm.controls['message'].invalid &&
+        (angForm.controls['message'].dirty ||
+          angForm.controls['message'].touched)
+      "
+      class="alert alert-danger"
+    >
+      <div *ngIf="angForm.controls['message'].errors.required">
+        message is required.
+      </div>
+    </div>
+  </div>
+
+  <div class="container-contact100-form-btn">
+    <button
+      (click)="
+        sendMessage(
+          firstname.value,
+          lastname.value,
+          email.value,
+          phoneno.value,
+          message.value
+        )
+      "
+      type="submit"
+      class="contact100-form-btn"
+    >
+      Send Message
+    </button>
+  </div>
+</form>

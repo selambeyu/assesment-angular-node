@@ -5,7 +5,7 @@ const routes: Routes = [
   {
     path: "contactus",
     loadChildren: () =>
-      import("./contactus/contactus.module").then(m => m.ContactusModule)
+      import("./contact-us/contact-us.module").then(m => m.ContactUsModule)
   },
   {
     path: "aboutus",

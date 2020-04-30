@@ -29,11 +29,10 @@ export class SendMessageComponent implements OnInit {
 
   sendMessage(firstname, lastname, email, phoneno, message) {
     this.ps.postMessages(firstname, lastname, email, phoneno, message);
+    this.angForm.reset();
   }
 
-  ngOnInit() {
-    // this.resetForm();
-  }
+  ngOnInit() {}
   //   resetForm(form?: NgForm) {
   //     if (form != null) form.resetForm();
   //     this.sevice.formData = {
