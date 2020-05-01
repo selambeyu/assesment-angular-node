@@ -8,6 +8,7 @@ import { ContactusService } from "src/app/services/contactus.service";
   styleUrls: ["./contactus.component.css"]
 })
 export class ContactusComponent implements OnInit {
+  successMsg: boolean = false;
   angForm: FormGroup;
   constructor(private fb: FormBuilder, private ps: ContactusService) {
     this.createForm();
@@ -24,6 +25,7 @@ export class ContactusComponent implements OnInit {
 
   sendMessage(firstname, lastname, email, phoneno, message) {
     this.ps.postMessages(firstname, lastname, email, phoneno, message);
+    this.successMsg = true;
     this.angForm.reset();
   }
 

@@ -154,6 +154,9 @@ i {
   font-weight: bold;
   margin-right: 35px;
 }
+small {
+  color: red;
+}
 
 .txt1 {
   font-family: Poppins-Regular;
