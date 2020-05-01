@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "dev": "ts-node server.ts",
+    "start": "nodemon ./dist/server.js",
+    "prod": "npm build && npm start",
+    "format": "prettier-standard '**/*.ts'"
   },
   "author": "melkambeyene",
   "license": "ISC",
@@ -20,6 +25,7 @@
   "devDependencies": {
     "@types/mongoose": "^5.7.14",
     "@types/node": "^13.13.4",
+    "nodemon": "^2.0.3",
     "typescript": "^2.9.2"
   }
 }

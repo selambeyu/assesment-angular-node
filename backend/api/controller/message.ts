@@ -7,10 +7,10 @@ import Message from "../model/message";
 // const Message = require("../model/message");
 
 module.exports.submitMessage = (req, res) => {
-  let { errors, isValid } = validateMessage(req.body);
-  if (!isValid) {
-    return res.status(400).json(errors);
-  }
+  // let { errors, isValid } = validateMessage(req.body);
+  // if (!isValid) {
+  //   return res.status(400).json(errors);
+  // }
   const message = new Message({
     firstname: req.body.firstname,
     lastname: req.body.lastname,
