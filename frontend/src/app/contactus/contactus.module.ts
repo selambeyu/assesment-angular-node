@@ -1,14 +1,18 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
+import { ReactiveFormsModule } from "@angular/forms";
 
-import { ContactusRoutingModule } from './contactus-routing.module';
-import { ContactusComponent } from './contactus/contactus.component';
+import { ContactusRoutingModule } from "./contactus-routing.module";
+import { ContactusComponent } from "./contactus/contactus.component";
 
 @NgModule({
   declarations: [ContactusComponent],
   imports: [
     CommonModule,
-    ContactusRoutingModule
+    ContactusRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
-export class ContactusModule { }
+export class ContactusModule {}

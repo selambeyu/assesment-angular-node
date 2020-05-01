@@ -12,7 +12,13 @@ export class ContactusService {
 
   constructor(private http: HttpClient) {}
 
-  postMessages(firstname, lastname, email, phoneno, message) {
+  postMessages(
+    firstname: string,
+    lastname: string,
+    email: string,
+    phoneno: number,
+    message: string
+  ) {
     const obj = {
       firstname,
       lastname,

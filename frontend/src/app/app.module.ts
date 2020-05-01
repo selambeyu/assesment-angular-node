@@ -11,8 +11,9 @@ import { ContactsComponent } from "./contact-us/contacts/contacts.component";
 import { SendMessageComponent } from "./contact-us/send-message/send-message.component";
 import { Contactus } from "./models/contactus.model";
 import { from } from "rxjs";
-import { FooterComponent } from './layout/footer/footer.component';
-import { HeaderComponent } from './layout/header/header.component';
+import { FooterComponent } from "./layout/footer/footer.component";
+import { HeaderComponent } from "./layout/header/header.component";
+import { ContactusModule } from "./contactus/contactus.module";
 
 @NgModule({
   declarations: [
@@ -20,15 +21,17 @@ import { HeaderComponent } from './layout/header/header.component';
     ContactUsComponent,
     ContactsComponent,
     SendMessageComponent,
+    // AboutusComponent,
     FooterComponent,
     HeaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
+    // FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ContactusModule
   ],
   providers: [Contactus],
   bootstrap: [AppComponent]
