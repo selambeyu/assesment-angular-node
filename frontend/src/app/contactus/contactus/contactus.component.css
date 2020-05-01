@@ -162,9 +162,20 @@ small {
   font-family: Poppins-Regular;
   font-size: 18px;
   margin-left: 0.9px;
-  margin-top: 150px;
+  margin-bottom: 10px;
   line-height: 1.2;
   color: #fff;
+}
+
+.madaid {
+  margin-left: 100px;
+}
+
+.flex-w {
+  margin-top: 200px;
+}
+.dis-flex {
+  margin-top: 35px;
 }
 #addre1 {
   margin-top: 150px;
